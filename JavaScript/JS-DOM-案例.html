@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 内部脚本 -->
+    <!-- 可以在html文件内出现多次，重复出现 -->
+    <!-- <script>
+        alert('Hello js');
+    </script> -->
+
+    <!-- 外部脚本 -->
+    <!-- 不能自闭合 -->
+    <!-- <script src=""></script> -->
+
+</head>
+<body>
+    <img id="light" src="img/off.gif"> <br>
+
+    <div class="cls">传智教育</div>   <br>
+    <div class="cls">黑马程序员</div> <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+    <script>
+        
+        //1. 点亮灯泡
+        var image=document.getElementById("light");
+        image.src="img/on.gif";
+        
+        //2. 将所有的 div 标签的标签体内容替换为 非常好
+        var divs=document.getElementsByTagName("div");
+        for (let i = 0; i< divs.length; i++) {
+            const div = divs[i];
+            div.innerHTML+=" <font color='red'>very good</font>";
+        }
+
+        //3. 使所有的复选框呈现被选中的状态
+        var ins=document.getElementsByName("hobby");
+        for (let i = 0; i < ins.length; i++) {
+            const inss = ins[i];
+            inss.checked=true;
+        }
+    </script>
+</body>
+</html>
+
+<!-- 
+    输出语句
+    1.windows.alert()写入警告框，浏览器弹出
+    2.document.write()写入HTML输出，在浏览器展示
+    3.console.log()写入浏览器控制台
+
+    变量
+    1.var 用于声明变量 var a=20;
+     1.1 var作用域比较大，全局变量
+     1.2 var可以重复定义，后定义的会覆盖先定义的
+     
+    2.变量可以存放不同类型的值
+    3.let声明局部变量，不能重复定义
+    4.const定义只读变量，不能被改变（常量）
+
+    原始数据类型：
+    1.number---整数和小数
+    2.string---字符串
+    3.boolean---布尔
+    4.null---对象为空
+    5.undefined---声明的变量未初始化
+
+    运算符
+    唯一特殊的：===，全等运算符，判断两端的变量类型和值是否都相同；==会进行类型转换，判断值是否相等
+
+    函数
+    function functionName(形参，不需要指定形参类型){
+        函数体
+    }
+    或者
+    var functionName=function(){
+        函数体
+    }
+
+    对象
+    1.array数组
+    var 变量名=new Array(元素列表);   var 变量名=[元素列表];
+    长度可变，类型可变
+    var arr=[1,2,3,4];
+    arr[10]=50;   但是arr[9]就是undefined
+
+    属性：length 数量；forEach()遍历数组中每一个有值的元素；push()添加元素到数组的尾部；splice()删除元素，两个变量是删除的初始位置，和删除数量
+    
+    2.string
+    var 变量名=new String("");   var 变量名="";
+    charAt()返回指定位置的字符
+    indexOf()检索字符串
+    trim()去除字符串两边的空格
+    substing()提取字符串中两个指定的索引号之间的字符，开始和结束索引，含头不含尾
+    3.dom 文档对象模型 ///DOM树
+    document：整个文档对象
+    element:元素对象
+    attribute：属性对象
+    text:文本对象
+    comment:注释对象
+    4.bom 浏览器对象模型
+    组成——window:浏览器窗口对象 navigation：浏览器对象 screen：屏幕对象 history:历史记录对象 location:地址栏对象
+    5.json，javascript对象标记法，属性名必须用“”括起 
+    定义json值是字符串格式，转换成json格式需要调用JSON.parse(),json对象转成json字符串是调用JSON.stringfy()
+ -->
