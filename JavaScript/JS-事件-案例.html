@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见事件案例</title>
+</head>
+<body>
+    <img id="light" src="img/off.gif"> <br>
+    <input type="button" value="点亮" onclick="on()"> <input type="button"  value="熄灭" onclick="off()">
+
+    <br> <br>
+
+    <input type="text" id="name" value="ITCAST" onfocus="lower()" onblur="upper()">
+    <br> <br>
+
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 旅游
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+
+    <input type="button" value="全选" onclick="checkAll()"> <input type="button" value="反选" onclick="reverse()">
+
+    <script>
+        //点击点亮按钮，点亮灯泡；点击熄灭按钮，熄灭灯泡
+        function on(){
+            var img=document.getElementById("light");
+            img.src="img/on.gif";
+        }
+        function off(){
+            var img=document.getElementById("light");
+            img.src="img/off.gif";
+        }
+        //输入框聚焦后，展示小写；输入框离焦后，展示大写  --onfocus  --onblur
+        function lower(){
+            var context=document.getElementById("name");
+            context.value=context.value.toLowerCase();
+        }
+        function upper(){
+            var context=document.getElementById("name");
+            context.value=context.value.toUpperCase();
+        }
+        //点击全选按钮使所有复选框呈现选中状态；点击反选按钮是所有复选框呈现取消勾选的状态
+       function checkAll(){
+            var hobbies=document.getElementsByName("hobby");
+            for (let i = 0; i < hobbies.length; i++) {
+                const element = hobbies[i];
+                element.checked=true;
+            }
+       }
+       function reverse(){
+        var hobbies=document.getElementsByName("hobby");
+            for (let i = 0; i < hobbies.length; i++) {
+                const element = hobbies[i];
+                element.checked=false;
+            }
+       }
+
+
+    </script>
+</body>
+</html>
